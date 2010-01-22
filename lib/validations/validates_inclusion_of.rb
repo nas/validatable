@@ -1,3 +1,10 @@
+# Usage:
+# 
+#   class Person
+#     include Validatable
+#     validates_inclusion_of :attribute, :within => ['value1', 'value2']
+#   end
+# 
 module Validatable 
   class ValidatesInclusionOf < ValidationBase #:nodoc:
     option :within
