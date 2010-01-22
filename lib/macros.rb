@@ -223,6 +223,24 @@ module Validatable
     def include_validations_from(attribute_to_validate, options = {})
       validations_to_include << IncludedValidation.new(attribute_to_validate)
     end
+    
+    # call-seq: validates_inclusion_of(*args)
+    # 
+    # Validates that the specified values are present in the attribute
+    # 
+    #   class Person
+    #     include Validatable
+    #     validates_inclusion_of :sex, :within => %{ male female }
+    #   end
+    #
+    # The sex attribute in the object must either have a value of male or female.
+    #
+    # Configuration options:
+    # 
+    #     * message - The message to add to the errors collection when the validation fails
+    def validates_inclusion_of(*args)
+      add_validations(args, ValidatesInclusionOf)
+    end
 
     # call-seq: include_errors_from(attribute_to_validate, options = {})
     # 
@@ -254,6 +272,7 @@ module Validatable
     # 
     #     * map - A hash that maps attributes of the child to attributes of the parent.
     #     * if - A block that when executed must return true of the validation will not occur.
+    
     def include_errors_from(attribute_to_validate, options = {})
       children_to_validate << ChildValidation.new(attribute_to_validate, options[:map] || {}, options[:if] || lambda { true })
     end

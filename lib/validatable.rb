@@ -16,4 +16,5 @@ require File.expand_path(File.dirname(__FILE__) + '/validations/validates_confir
 require File.expand_path(File.dirname(__FILE__) + '/validations/validates_length_of')
 require File.expand_path(File.dirname(__FILE__) + '/validations/validates_true_for')
 require File.expand_path(File.dirname(__FILE__) + '/validations/validates_numericality_of')
+require File.expand_path(File.dirname(__FILE__) + '/validations/validates_inclusion_of')
 require File.expand_path(File.dirname(__FILE__) + '/validations/validates_each')
